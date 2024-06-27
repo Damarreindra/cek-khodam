@@ -1,21 +1,35 @@
-import React from 'react';
-import { Box, Input, Button, FormControl, FormLabel, HStack, IconButton, Text, Flex } from '@chakra-ui/react';
+import React, { useState } from 'react';
+import { Box, Input, Button, FormControl, FormLabel, HStack, Text, Flex } from '@chakra-ui/react';
+import { useNavigate } from 'react-router-dom';
 
 function FormContainer() {
+  const [name, setName] = useState('');
+  const navigate = useNavigate();
+
+  const handleNameChange = (e) => {
+    setName(e.target.value);
+  };
+
+  const handleSubmit = () => {
+    if (name) {
+      navigate(`/result?name=${name}`);
+    }
+  };
+
   return (
-    <Flex bg='rgba(255, 255, 255, 0.15)' // Transparent white 
-    backdropFilter='blur(10px)' // Blur effect for glass-like appearance
-    borderRadius={20}
-   
-    p={4}
-    color='white'>
+    <Flex background='rgba(255, 255, 255, 0.1)'
+      boxShadow={'0 4px 30px rgba(0, 0, 0, 0.1)'}
+      backdropFilter='blur(10px)'
+      borderRadius={20}
+      p={4}
+      color='white'>
       <FormControl>
         <FormLabel>Masukan Nama</FormLabel>
         <HStack>
-          <Input type='text' borderRadius={'20px'}  maxW='200px' mr={2} />
-         <Button borderRadius={'20px'} colorScheme='red' variant='solid'>
-         <Text mr={1}>&#129535;</Text>
-         Cek
+          <Input type='text' borderRadius={'20px'} colorScheme='red' maxW='200px' mr={2} onChange={handleNameChange} />
+          <Button borderRadius={'20px'} colorScheme='red' variant='solid' onClick={handleSubmit}>
+            <Text mr={1}><i className="bi bi-stars"></i></Text>
+            Cek
           </Button>
         </HStack>
       </FormControl>

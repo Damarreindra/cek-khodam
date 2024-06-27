@@ -1,4 +1,4 @@
-import { Box, Container, HStack, Text, Icon } from "@chakra-ui/react";
+import { Box, Container, HStack, Text, Icon, Link } from "@chakra-ui/react";
 import React from "react";
 import FormContainer from "../components/FormContainer";
 
@@ -24,7 +24,12 @@ function Home() {
         maxW="container.xl"
         height="100%"
       >
-        <HStack>
+        <HStack 
+     
+          justifyContent={"center"}  // Center items horizontally
+          spacing={0}  // Adjust spacing between items as needed
+          mb={6}
+        >
           <Text
             fontSize={"4xl"}
             fontFamily="Poppins, sans-serif"
@@ -59,15 +64,18 @@ function Home() {
         >
           Made with &#128154; by
         </Text>
-        <Text
+        <Link
           fontSize={"md"}
           fontFamily="Poppins, sans-serif"
           color={"white"}
           fontWeight={"400"}
           textAlign={"center"}
+          href="https://twitter.com/damarendraa"
+          isExternal // This ensures it opens in a new tab
+
         >
-          <i class="bi bi-twitter-x"></i> @damarendraa
-        </Text>
+         <i class="bi bi-twitter-x"></i> @damarendraa
+        </Link>
       </Container>
     </Box>
   );
