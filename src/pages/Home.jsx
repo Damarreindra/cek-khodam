@@ -1,4 +1,4 @@
-import { Box, Container, HStack, Text, Icon, Link } from "@chakra-ui/react";
+import { Box, Container, HStack, Text, Link } from "@chakra-ui/react";
 import React from "react";
 import FormContainer from "../components/FormContainer";
 
